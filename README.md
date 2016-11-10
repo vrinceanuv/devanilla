@@ -6,3 +6,4 @@ devanilla purpose is to ease your way when you search for dom elements or want t
 Below you can find a list of features and how you can use or library.
 
 Features:
+- coming soon -
