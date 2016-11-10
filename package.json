@@ -1,0 +1,25 @@
+{
+  "name": "devanilla",
+  "version": "1.0.0",
+  "description": "dom queries and events simplified",
+  "dependencies" : {
+    
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrinceanuv/devanilla.git"
+  },
+  "keywords": [
+    "dom",
+    "devanilla"
+  ],
+  "author": "Valentin Vrinceanu (hello@vrinceanu.com) & Simona-Ecaterina Serseniuc (simona.serseniuc@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vrinceanuv/devanilla/issues"
+  },
+  "homepage": "https://github.com/vrinceanuv/devanilla#readme"
+}
