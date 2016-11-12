@@ -2,8 +2,8 @@
   "name": "devanilla",
   "version": "1.0.0",
   "description": "dom queries and events simplified",
-  "dependencies" : {
-    
+  "devDependencies" : {
+    "browserify": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
