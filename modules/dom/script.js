@@ -18,10 +18,6 @@
     return parent.insertBefore(element, parent.firstChild);
   }
 
-  function removeElement (element) {
-    return element.parentNode.removeChild(element);
-  }
-
   function addClass (className, element) {
     if (element.classList) {
       return element.classList.add(className);
