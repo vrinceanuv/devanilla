@@ -22,8 +22,8 @@
 
   /**
    * Adds an element inside another element as last child
-   * @param  {node} element
-   * @param  {node} parent
+   * @param  {document object} element
+   * @param  {document object} parent
    */
 
   function append (element, parent) {
@@ -32,8 +32,8 @@
 
   /**
    * Adds an element inside another element as first child
-   * @param  {node} element
-   * @param  {node} parent
+   * @param  {document object} element
+   * @param  {document object} parent
    */
 
   function prepend (element, parent) {
@@ -43,7 +43,7 @@
   /**
    * Adds a class to an element
    * @param  {string} className
-   * @param  {node} element
+   * @param  {document object} element
    */
 
   function addClass (className, element) {
@@ -57,7 +57,7 @@
   /**
    * Removes a class from an element
    * @param  {string} className
-   * @param  {node} element
+   * @param  {document object} element
    */
 
   function removeClass (className, element) {
@@ -70,8 +70,8 @@
 
   /**
    * Adds an attribute or more attributes to an element
-   * @param  {node} element
    * @param  {object} attributes
+   * @param  {document object} element
    */
 
   function addAttribute (element, attributes) {
@@ -82,8 +82,8 @@
 
   /**
    * Removes an attribute from element
-   * @param  {node} element
-   * @param  {object} attributes
+   * @param  {string} attributeName
+   * @param  {document object} element
    */
 
   function removeAttribute (attributeName, element) {
