@@ -55,6 +55,7 @@ export const addClass = (className, element) => {
 
 export const removeClass = (className, element) => {
   // done late night, to be tested
+  // todo
   let myElement = elementCheck( element );
 
   if (element.classList) {
