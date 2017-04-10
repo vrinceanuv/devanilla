@@ -1,3 +1,5 @@
+import { elementCheck } from '../utils/script.js'
+
 /**
  * Creates an element
  * @param  {string} element
@@ -52,6 +54,9 @@ export const addClass = (className, element) => {
  */
 
 export const removeClass = (className, element) => {
+  // done late night, to be tested
+  let myElement = elementCheck( element );
+
   if (element.classList) {
     return element.classList.remove(className);
   } else {
