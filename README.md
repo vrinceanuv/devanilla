@@ -7,11 +7,13 @@ devanilla purpose is to ease your way when you search for DOM elements or want t
 Below you can find a list of features and how you can use our library.
 
 How to make it run to see it in action:
-`npm install
+```
+npm install
 npm run babel
 npm run browserify
 npm start
-type in browser: http://localhost:9000/`
+```
+and go to http://localhost:9000/
 
 What you need to use it in action:
 - browserify
