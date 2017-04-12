@@ -1,18 +1,22 @@
-import { elementCheck } from '../utils/script.js'
+import { retrieveElement } from '../utils/script.js'
 
 /**
  * Creates an element
  * @param  {string} element
  */
 
-export const addElement = (element) => document.createElement(element)
+export const addElement = ( element ) => document.createElement( element )
 
 /**
  * Removes an element from DOM
  * @param  {string} element
  */
 
-export const removeElement = (element) => element.parentNode.removeChild(element)
+export const removeElement = ( element ) => {
+  let childNode = retrieveElement( element );
+
+  element.parentNode.removeChild( childNode );
+}
 
 /**
  * Adds an element inside another element as last child
@@ -20,9 +24,11 @@ export const removeElement = (element) => element.parentNode.removeChild(element
  * @param  {node} parent
  */
 
-export const append = (element, parent) => {
-  let parentNode = document.querySelector(parent);
-  return parentNode.appendChild(element)
+export const append = ( element, parent ) => {
+  let parentNode = retrieveElement( parent ),
+      childNode = retrieveElement( element );
+
+  return parentNode.appendChild( childNode )
 }
 
 /**
@@ -31,7 +37,12 @@ export const append = (element, parent) => {
  * @param  {node} parent
  */
 
-export const prepend = (element, parent) => parent.insertBefore(element, parent.firstChild)
+export const prepend = ( element, parent ) => {
+  let parentNode = retrieveElement( parent ),
+      childNode = retrieveElement( element );
+
+  parentNode.insertBefore( childNode, parentNode.firstChild );
+}
 
 /**
  * Adds a class to an element
@@ -39,9 +50,12 @@ export const prepend = (element, parent) => parent.insertBefore(element, parent.
  * @param  {node} element
  */
 
-export const addClass = (className, element) => {
-  if (element.classList) {
-    return element.classList.add(className);
+export const addClass = ( className, element ) => {
+  // TODO: done late night, to be tested
+  let elementToChange = retrieveElement( element );
+
+  if ( element.classList ) {
+    return element.classList.add( className );
   } else {
     return element.className += ' ' + className;
   }
@@ -53,15 +67,14 @@ export const addClass = (className, element) => {
  * @param  {node} element
  */
 
-export const removeClass = (className, element) => {
-  // done late night, to be tested
-  // todo
-  let myElement = elementCheck( element );
+export const removeClass = ( className, element ) => {
+  // TODO: done late night, to be tested
+  let elementToChange = retrieveElement( element );
 
-  if (element.classList) {
-    return element.classList.remove(className);
+  if (elementToChange.classList) {
+    return elementToChange.classList.remove( className );
   } else {
-    return element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    return elementToChange.className = elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
   }
 }
 
@@ -71,9 +84,11 @@ export const removeClass = (className, element) => {
  * @param  {node} element
  */
 
-export const addAttribute = (element, attributes) => {
-  return attributes.map( function(attr) {
-    return element.setAttribute(attr.name, attr.value)
+export const addAttribute = ( element, attributes ) => {
+  let elementToChange = retrieveElement( element );
+
+  return attributes.map( function( attr ) {
+    return elementToChange.setAttribute( attr.name, attr.value )
   } )
 }
 
@@ -83,4 +98,8 @@ export const addAttribute = (element, attributes) => {
  * @param  {node} element
  */
 
-export const removeAttribute = (attributeName, element) => element.removeAttribute(attributeName)
+export const removeAttribute = ( attributeName, element ) => {
+  let elementToChange = retrieveElement( element );
+
+  element.removeAttribute( attributeName );
+}

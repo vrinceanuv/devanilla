@@ -1,6 +1,6 @@
-const checkElement = (element) => {
-  if (typeof element === string) {
-    return document.querySelector(element);
+const retrieveElement = ( element ) => {
+  if ( typeof element === string ) {
+    return document.querySelector( element );
   }
 
   return element;
