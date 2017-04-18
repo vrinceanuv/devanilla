@@ -1,7 +1,7 @@
 {
   "name": "devanilla",
   "version": "1.0.0",
-  "description": "dom queries and events simplified",
+  "description": "js helper library",
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",

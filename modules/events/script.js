@@ -1,23 +1,15 @@
-(function () {
-
-  function addEvent (eventType, element, callback) {
-    if (element.length > 1) {
-      for (var i = 0; i < element.length; i++) {
-        element[i].addEventListener(eventType, callback);
-      }
-    } else {
-      element.addEventListener(eventType, callback);
-    }
+export const addEvent = ( eventType, element, callback ) => {
+  if (element.length > 1) {
+    element.map( (elem) => elem.addEventListener( eventType, callback ) );
+  } else {
+    element.addEventListener( eventType, callback );
   }
+}
 
-  function removeEvent (eventType, element) {
-
+export const removeEvent = (eventType, element, callback) => {
+  if (element.length > 1) {
+    element.map( (elem) => elem.removeEventListener( eventType, callback ) );
+  } else {
+    element.addEventListener( eventType, callback );
   }
-
-  events = {
-    addEvent: addEvent,
-    removeEvent: removeEvent
-  };
-
-  return events;
-});
+}
