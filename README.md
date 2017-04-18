@@ -8,10 +8,10 @@ Below you can find a list of features and how you can use our library.
 
 How to make it run to see it in action:
 ```
-npm install
-npm run babel
-npm run browserify
-npm start
+$ npm install
+$ npm run babel
+$ npm run browserify
+$ npm start
 ```
 and go to http://localhost:9000/
 
