@@ -7,4 +7,5 @@
  */
 export const ajaxCall = (url, type, callback, data) => {
   // TODO ajax call
-}
+  return data;
+};
