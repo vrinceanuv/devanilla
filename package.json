@@ -9,7 +9,14 @@
     "browserify": "^14.3.0",
     "http-server": "^0.9.0",
     "jest": "^19.0.2",
-    "watch": "^1.0.2"
+    "watch": "^1.0.2",
+    "eslint": "~3.19.0",
+    "eslint-loader": "~1.7.1",
+    "eslint-config-airbnb": "~14.1.0",
+    "eslint-plugin-import": "~2.2.0",
+    "eslint-plugin-jsx-a11y": "~4.0.0",
+    "eslint-plugin-react": "~6.10.3",
+    "babel-eslint": "~7.2.2"
   },
   "main": "build/main.js",
   "scripts": {
@@ -17,7 +24,9 @@
     "babel": "babel --presets es2015 -d build/ modules/",
     "browserify": "browserify build/main.js -o build/main.bundle.js",
     "test": "jest",
+    "lint": "eslint modules/**",
     "test:watch": "npm test -- --watch",
+    "prepublish": "npm run lint && npm run babel && npm run browserify",
     "start": "http-server -p 9000"
   },
   "repository": {
@@ -30,6 +39,7 @@
   ],
   "author": "Valentin Vrinceanu (hello@vrinceanu.com) & Simona-Ecaterina Serseniuc (simona.serseniuc@gmail.com)",
   "license": "MIT",
+  "url": "https://github.com/vrinceanuv/devanilla",
   "bugs": {
     "url": "https://github.com/vrinceanuv/devanilla/issues"
   },
