@@ -1,22 +1,22 @@
-import { retrieveElement } from '../utils/script.js'
+import { retrieveElement } from '../utils/script';
 
 /**
  * Creates an element
  * @param  {string} element
  */
 
-export const addElement = ( element ) => document.createElement( element )
+export const addElement = element => document.createElement(element);
 
 /**
  * Removes an element from DOM
  * @param  {string} element
  */
 
-export const removeElement = ( element ) => {
-  let childNode = retrieveElement( element );
+export const removeElement = (element) => {
+  const childNode = retrieveElement(element);
 
-  element.parentNode.removeChild( childNode );
-}
+  element.parentNode.removeChild(childNode);
+};
 
 /**
  * Adds an element inside another element as last child
@@ -24,12 +24,12 @@ export const removeElement = ( element ) => {
  * @param  {node} parent
  */
 
-export const append = ( element, parent ) => {
-  let parentNode = retrieveElement( parent ),
-      childNode = retrieveElement( element );
+export const append = (element, parent) => {
+  const parentNode = retrieveElement(parent);
+  const childNode = retrieveElement(element);
 
-  return parentNode.appendChild( childNode )
-}
+  return parentNode.appendChild(childNode);
+};
 
 /**
  * Adds an element inside another element as first child
@@ -37,12 +37,12 @@ export const append = ( element, parent ) => {
  * @param  {node} parent
  */
 
-export const prepend = ( element, parent ) => {
-  let parentNode = retrieveElement( parent ),
-      childNode = retrieveElement( element );
+export const prepend = (element, parent) => {
+  const parentNode = retrieveElement(parent);
+  const childNode = retrieveElement(element);
 
-  parentNode.insertBefore( childNode, parentNode.firstChild );
-}
+  parentNode.insertBefore(childNode, parentNode.firstChild);
+};
 
 /**
  * Adds a class to an element
@@ -50,16 +50,18 @@ export const prepend = ( element, parent ) => {
  * @param  {node} element
  */
 
-export const addClass = ( className, element ) => {
+export const addClass = (className, element) => {
   // TODO: done late night, to be tested
-  let elementToChange = retrieveElement( element );
+  const elementToChange = retrieveElement(element);
 
-  if ( element.classList ) {
-    return element.classList.add( className );
-  } else {
-    return element.className += ' ' + className;
+  if (elementToChange.classList) {
+    return elementToChange.classList.add(className);
   }
-}
+
+  elementToChange.className += ` ${className}`;
+
+  return elementToChange;
+};
 
 /**
  * Removes a class from an element
@@ -67,16 +69,17 @@ export const addClass = ( className, element ) => {
  * @param  {node} element
  */
 
-export const removeClass = ( className, element ) => {
+export const removeClass = (className, element) => {
   // TODO: done late night, to be tested
-  let elementToChange = retrieveElement( element );
+  const elementToChange = retrieveElement(element);
 
   if (elementToChange.classList) {
-    return elementToChange.classList.remove( className );
-  } else {
-    return elementToChange.className = elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    return elementToChange.classList.remove(className);
   }
-}
+
+  // eslint-disable-next-line
+  return elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+};
 
 /**
  * Adds an attribute or more attributes to an element
@@ -84,13 +87,11 @@ export const removeClass = ( className, element ) => {
  * @param  {node} element
  */
 
-export const addAttribute = ( element, attributes ) => {
-  let elementToChange = retrieveElement( element );
+export const addAttribute = (element, attributes) => {
+  const elementToChange = retrieveElement(element);
 
-  return attributes.map( function( attr ) {
-    return elementToChange.setAttribute( attr.name, attr.value )
-  } )
-}
+  return attributes.map(attr => elementToChange.setAttribute(attr.name, attr.value));
+};
 
 /**
  * Removes an attribute from element
@@ -98,8 +99,8 @@ export const addAttribute = ( element, attributes ) => {
  * @param  {node} element
  */
 
-export const removeAttribute = ( attributeName, element ) => {
-  let elementToChange = retrieveElement( element );
+export const removeAttribute = (attributeName, element) => {
+  const elementToChange = retrieveElement(element);
 
-  element.removeAttribute( attributeName );
-}
+  elementToChange.removeAttribute(attributeName);
+};

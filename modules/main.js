@@ -1,16 +1,15 @@
-import dom from './dom/script'
-import events from './events/script'
+import * as dom from './dom/script';
+import * as events from './events/script';
 
-//exporting dom modules
-export const addElement = dom.addElement;
-export const removeElement = dom.removeElement;
-export const append = dom.append;
-export const prepend = dom.prepend;
-export const addClass = dom.addClass;
-export const removeClass = dom.removeClass;
-export const addAttribute = dom.addAttribute;
-export const removeAttribute = dom.removeAttribute;
-
-//exporting events
-export const addEvent = events.addEvent;
-export const removeEvent = events.removeEvent;
+export const dev = {
+  addElement: dom.addElement,
+  removeElement: dom.removeElement,
+  append: dom.append,
+  prepend: dom.prepend,
+  addClass: dom.addClass,
+  removeClass: dom.removeClass,
+  addAttribute: dom.addAttribute,
+  removeAttribute: dom.removeAttribute,
+  addEvent: events.addEvent,
+  removeEvent: events.removeEvent,
+};
