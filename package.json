@@ -21,12 +21,12 @@
   "main": "build/main.js",
   "scripts": {
     "dev": "watch 'npm run babel' modules",
-    "babel": "babel --presets es2015 -d build/ modules/",
-    "browserify": "browserify build/main.js -o build/main.bundle.js",
+    "babel": "babel --presets es2015 -d lib/ modules/",
+    "browserify": "browserify lib/main.js -o build/main.bundle.js",
     "test": "jest",
-    "lint": "eslint modules/**",
+    "lint": "eslint lib/main.js",
     "test:watch": "npm test -- --watch",
-    "prepublish": "npm run lint && npm run babel && npm run browserify",
+    "prepublish": "npm run lint && npm run babel",
     "start": "http-server -p 9000"
   },
   "repository": {
@@ -37,7 +37,17 @@
     "dom",
     "devanilla"
   ],
-  "author": "Valentin Vrinceanu (hello@vrinceanu.com) & Simona-Ecaterina Serseniuc (simona.serseniuc@gmail.com)",
+  "contributors": [
+    {
+      "name": "Valentin Vrinceanu",
+      "email": "hello@vrinceanu.com",
+      "url": "http://vrinceanu.com"
+    },
+    {
+      "name": "Simona-Ecaterina Serseniuc",
+      "email": "simona.serseniuc@gmail.com"
+    }
+  ],
   "license": "MIT",
   "url": "https://github.com/vrinceanuv/devanilla",
   "bugs": {
