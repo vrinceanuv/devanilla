@@ -18,15 +18,12 @@ or
 const devanilla = require('devanilla')
 ```
 
-What you need to use it in action:
-- browserify
-- or
-- require
+Contributing to it:
+```
+$ npm install
+$ npm dev
+```
 
-What you need to make your own custom build:
-`npm run babel`
+After changes raise PRs.
 
-PRs are welcomed when this will be released as version 1.
-
-Features:
-- coming soon -
+Contributing PRs will be accepted once an initial version 1 will be released.
