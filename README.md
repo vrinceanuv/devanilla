@@ -18,7 +18,7 @@ or
 const devanilla = require('devanilla')
 ```
 
-Contributing to it:
+**Contributing to it:**
 ```
 $ npm install
 $ npm dev
@@ -26,4 +26,4 @@ $ npm dev
 
 After changes raise PRs.
 
-Contributing PRs will be accepted once an initial version 1 will be released.
+**Contributing PRs will be accepted once an initial version 1 will be released.**
