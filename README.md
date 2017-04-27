@@ -10,11 +10,10 @@ $ npm install devanilla
 ```
 
 **Using it**
-ES6
 ```
 import devanilla from 'devanilla'
 ```
-ES5
+or
 ```
 const devanilla = require('devanilla')
 ```
