@@ -10,14 +10,14 @@ export const getRequest = (url, callback) => {
 
   request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
-      callback(JSON.parse(request.responseText));
+      callback(JSON.parse(request.responseText), request);
     } else {
-      callback(request.status);
+      callback(request.status, request);
     }
   };
 
   request.onerror = function() {
-    callback(request.status);
+    callback(request.status, request);
   };
 
   request.send();
@@ -42,11 +42,11 @@ export const postRequest = (url, callback, data, headers) => {
   }
 
   request.onload = function() {
-    callback(request.status);
+    callback(request.status, request);
   };
 
   request.onerror = function() {
-    callback(request.status);
+    callback(request.status, request);
   };
 
 };
