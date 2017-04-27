@@ -4,12 +4,12 @@ We have created this library, because we know out there are lots of vanilla js i
 
 devanilla purpose is to ease your way when you search for DOM elements or want to apply events to one or multiple elements, do Ajax calls, etc.
 
-It will be published soon as an npm package and you can install it as:
+# Installing (not yet published)
 ```
 $ npm install devanilla
 ```
 
-**Using it**
+#Usage
 ```
 import devanilla from 'devanilla'
 ```
@@ -18,7 +18,7 @@ or
 const devanilla = require('devanilla')
 ```
 
-**Contributing to it:**
+# Contributing to it:
 ```
 $ npm install
 $ npm dev
