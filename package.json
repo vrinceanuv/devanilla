@@ -21,9 +21,9 @@
     "dev": "watch 'npm run babel' modules",
     "babel": "babel --presets es2015 -d lib/ modules/",
     "test": "jest",
-    "lint": "eslint lib/main.js",
+    "lint": "eslint modules/**",
     "test:watch": "npm test -- --watch",
-    "prepublish": "npm run lint && npm run babel",
+    "prepublish": "npm run lint && npm run babel"
   },
   "repository": {
     "type": "git",
