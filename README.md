@@ -9,7 +9,7 @@ devanilla purpose is to ease your way when you search for DOM elements or want t
 $ npm install devanilla
 ```
 
-#Usage
+# Usage
 ```
 import devanilla from 'devanilla'
 ```
