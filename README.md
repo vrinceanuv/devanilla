@@ -4,16 +4,20 @@ We have created this library, because we know out there are lots of vanilla js i
 
 devanilla purpose is to ease your way when you search for DOM elements or want to apply events to one or multiple elements, do Ajax calls, etc.
 
-Below you can find a list of features and how you can use our library.
+It will be published soon as an npm package and you can install it as:
+```
+$ npm install devanilla
+```
 
-How to make it run to see it in action:
+**Using it**
+ES6
 ```
-$ npm install
-$ npm run babel
-$ npm run browserify
-$ npm start
+import devanilla from 'devanilla'
 ```
-and go to http://localhost:9000/
+ES5
+```
+const devanilla = require('devanilla')
+```
 
 What you need to use it in action:
 - browserify
