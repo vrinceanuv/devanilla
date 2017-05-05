@@ -108,7 +108,7 @@ export const removeClass = (className, element) => {
  */
 
 export const addAttribute = (element, attributes) => {
-  const elementToChange = retrieveElement(element);
+  const elementToChange = find(element);
 
   return attributes.map(attr => elementToChange.setAttribute(attr.name, attr.value));
 };
@@ -120,7 +120,7 @@ export const addAttribute = (element, attributes) => {
  */
 
 export const removeAttribute = (attributeName, element) => {
-  const elementToChange = retrieveElement(element);
+  const elementToChange = find(element);
 
   elementToChange.removeAttribute(attributeName);
 };
