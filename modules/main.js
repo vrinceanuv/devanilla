@@ -2,6 +2,7 @@ import * as dom from './dom/script';
 import * as events from './events/script';
 import * as ajax from './ajax/script';
 
+export const find = dom.find;
 export const addElement = dom.addElement;
 export const removeElement = dom.removeElement;
 export const append = dom.append;

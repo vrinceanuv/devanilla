@@ -1,7 +1,22 @@
-export const retrieveElement = (element) => {
-  if (typeof element === 'string') {
-    return document.querySelector(element);
-  }
+export const addClasses = (classes, elementToChange) => {
+  classes.map( className => {
+    if (elementToChange.classList) {
+      return elementToChange.classList.add(className);
+    } else {
+      elementToChange.className += ` ${className}`;
 
-  return element;
-};
+      return elementToChange;
+    }
+  });
+}
+
+export const removeClasses = (classes, elementToChange) => {
+  classes.map( className => {
+    if (elementToChange.classList) {
+      return elementToChange.classList.remove(className);
+    } else {
+      // eslint-disable-next-line
+      return elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+  });
+}

@@ -1,4 +1,23 @@
-import { retrieveElement } from '../utils/script';
+import { addClasses, removeClasses } from '../utils/script';
+
+/**
+ * Finds an element or elements
+ * @param  {string} element
+ */
+
+export const find = (elementSelector) => {
+  if (typeof elementSelector === 'string') {
+    const elements = document.querySelectorAll(elementSelector);
+
+    if (elements.length > 1) {
+      return elements;
+    }
+
+    return elements[0];
+  } else {
+    return elementSelector;
+  }
+}
 
 /**
  * Creates an element
@@ -13,7 +32,7 @@ export const addElement = element => document.createElement(element);
  */
 
 export const removeElement = (element) => {
-  const childNode = retrieveElement(element);
+  const childNode = find(element);
 
   element.parentNode.removeChild(childNode);
 };
@@ -25,8 +44,8 @@ export const removeElement = (element) => {
  */
 
 export const append = (element, parent) => {
-  const parentNode = retrieveElement(parent);
-  const childNode = retrieveElement(element);
+  const parentNode = find(parent);
+  const childNode = find(element);
 
   return parentNode.appendChild(childNode);
 };
@@ -38,8 +57,8 @@ export const append = (element, parent) => {
  */
 
 export const prepend = (element, parent) => {
-  const parentNode = retrieveElement(parent);
-  const childNode = retrieveElement(element);
+  const parentNode = find(parent);
+  const childNode = find(element);
 
   parentNode.insertBefore(childNode, parentNode.firstChild);
 };
@@ -52,15 +71,16 @@ export const prepend = (element, parent) => {
 
 export const addClass = (className, element) => {
   // TODO: done late night, to be tested
-  const elementToChange = retrieveElement(element);
+  const elementToChange = find(element);
+  const classes = className.split(' ');
 
-  if (elementToChange.classList) {
-    return elementToChange.classList.add(className);
+  if (elementToChange.length) {
+    for(let i = 0; i < elementToChange.length; i++) {
+      addClasses(classes, elementToChange[i]);
+    }
+  } else {
+    addClasses(classes, elementToChange);
   }
-
-  elementToChange.className += ` ${className}`;
-
-  return elementToChange;
 };
 
 /**
@@ -71,14 +91,16 @@ export const addClass = (className, element) => {
 
 export const removeClass = (className, element) => {
   // TODO: done late night, to be tested
-  const elementToChange = retrieveElement(element);
+  const elementToChange = find(element);
+  const classes = className.split(' ');
 
-  if (elementToChange.classList) {
-    return elementToChange.classList.remove(className);
+  if (elementToChange.length) {
+    for(let i = 0; i < elementToChange.length; i++) {
+      removeClasses(classes, elementToChange[i]);
+    }
+  } else {
+    removeClasses(classes, elementToChange);
   }
-
-  // eslint-disable-next-line
-  return elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 };
 
 /**
