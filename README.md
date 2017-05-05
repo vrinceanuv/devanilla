@@ -18,12 +18,36 @@ or
 const devanilla = require('devanilla')
 ```
 
+# DOM Usage
+Find element or elements
+```
+const element = devanilla.find('header')
+```
+
+Add class
+```
+const element = devanilla.find('header')
+devanilla.addClass('my-class second-class', element)
+
+//Alternative
+devanilla.addClass('my-class second-class', 'header')
+```
+
+Remove class
+```
+const element = devanilla.find('header')
+devanilla.removeClass('my-class second-class', element)
+
+//Alternative
+devanilla.removeClass('my-class second-class', 'header')
+```
+
 # Contributing to it:
 ```
 $ npm install
-$ npm dev
+$ npm dev       //watches for changes and run babel
 ```
 
 After changes raise PRs.
 
-**Contributing PRs will be accepted once an initial version 1 will be released.**
+**Contributing PRs will be reviewed once an initial version 1 will be released.**
