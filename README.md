@@ -43,7 +43,7 @@ devanilla.removeClass('my-class second-class', element)
 devanilla.removeClass('my-class second-class', 'header')
 ```
 
-# DOM Usage
+# AJAX calls Usage
 GET
 ```javascript
 let getCall = devanilla.get('my/url');
