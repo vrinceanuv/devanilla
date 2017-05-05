@@ -57,7 +57,7 @@ getCall.then(function(data) {
 
 POST
 ```javascript
-let postCall = devanilla.post('https://httpbin.org/post', {firstItem: 1});
+let postCall = devanilla.post('my/url', data, headers);
 
 postCall.then(function(data) {
   let receivedData = JSON.parse(data);
