@@ -70,7 +70,6 @@ export const prepend = (element, parent) => {
  */
 
 export const addClass = (className, element) => {
-  // TODO: done late night, to be tested
   const elementToChange = find(element);
   const classes = className.split(' ');
 
@@ -90,7 +89,6 @@ export const addClass = (className, element) => {
  */
 
 export const removeClass = (className, element) => {
-  // TODO: done late night, to be tested
   const elementToChange = find(element);
   const classes = className.split(' ');
 
