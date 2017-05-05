@@ -10,6 +10,7 @@ $ npm install devanilla
 ```
 
 # Usage
+Only the methods updated below are working properly now
 ```javascript
 import devanilla from 'devanilla'
 ```
@@ -40,6 +41,29 @@ devanilla.removeClass('my-class second-class', element)
 
 //Alternative
 devanilla.removeClass('my-class second-class', 'header')
+```
+
+# DOM Usage
+GET
+```javascript
+let getCall = devanilla.get('my/url');
+
+getCall.then(function(data) {
+  let receivedData = JSON.parse(data);
+}, function(error) {
+  console.error(error);
+});
+```
+
+POST
+```javascript
+let postCall = devanilla.post('https://httpbin.org/post', {firstItem: 1});
+
+postCall.then(function(data) {
+  let receivedData = JSON.parse(data);
+}, function(error) {
+  console.error(error);
+});
 ```
 
 # Contributing to it:
