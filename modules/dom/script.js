@@ -110,7 +110,13 @@ export const removeClass = (className, element) => {
 export const addAttribute = (element, attributes) => {
   const elementToChange = find(element);
 
-  return attributes.map(attr => elementToChange.setAttribute(attr.name, attr.value));
+  if (elementToChange.length) {
+    for(let i = 0; i < elementToChange.length; i++) {
+      return attributes.map(attr => elementToChange[i].setAttribute(attr.name, attr.value));
+    }
+  } else {
+    return attributes.map(attr => elementToChange.setAttribute(attr.name, attr.value));
+  }
 };
 
 /**
@@ -122,5 +128,11 @@ export const addAttribute = (element, attributes) => {
 export const removeAttribute = (attributeName, element) => {
   const elementToChange = find(element);
 
-  elementToChange.removeAttribute(attributeName);
+  if (elementToChange.length) {
+    for(let i = 0; i < elementToChange.length; i++) {
+      attributes.map(attr => elementToChange[i].removeAttribute(attributeName));
+    }
+  } else {
+    attributes.map(attr => removeAttribute(attributeName));
+  }
 };
