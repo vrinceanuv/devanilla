@@ -8,7 +8,7 @@ import {find} from '../dom/script';
  */
 
 export const addEvent = (eventType, elementSelector, callback) => {
-  const elements = find(elementSelector);
+  let elements = find(elementSelector);
 
   if (elements.length > 1) {
     for (let i = 0; i < elements.length; i++) {
@@ -27,7 +27,7 @@ export const addEvent = (eventType, elementSelector, callback) => {
  */
 
 export const removeEvent = (eventType, elementSelector, callback) => {
-  const elements = find(elementSelector);
+  let elements = find(elementSelector);
 
   if (elements.length > 1) {
     for (let i = 0; i < elements.length; i++) {

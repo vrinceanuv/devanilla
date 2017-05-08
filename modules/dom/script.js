@@ -32,7 +32,7 @@ export const addElement = element => document.createElement(element);
  */
 
 export const removeElement = (element) => {
-  const childNode = find(element);
+  let childNode = find(element);
 
   element.parentNode.removeChild(childNode);
 };
@@ -44,8 +44,8 @@ export const removeElement = (element) => {
  */
 
 export const append = (element, parent) => {
-  const parentNode = find(parent);
-  const childNode = find(element);
+  let parentNode = find(parent);
+  let childNode = find(element);
 
   return parentNode.appendChild(childNode);
 };
@@ -57,8 +57,8 @@ export const append = (element, parent) => {
  */
 
 export const prepend = (element, parent) => {
-  const parentNode = find(parent);
-  const childNode = find(element);
+  let parentNode = find(parent);
+  let childNode = find(element);
 
   parentNode.insertBefore(childNode, parentNode.firstChild);
 };
@@ -70,7 +70,7 @@ export const prepend = (element, parent) => {
  */
 
 export const addClass = (className, element) => {
-  const elementToChange = find(element);
+  let elementToChange = find(element);
   const classes = className.split(' ');
 
   if (elementToChange.length) {
@@ -89,7 +89,7 @@ export const addClass = (className, element) => {
  */
 
 export const removeClass = (className, element) => {
-  const elementToChange = find(element);
+  let elementToChange = find(element);
   const classes = className.split(' ');
 
   if (elementToChange.length) {
@@ -108,7 +108,7 @@ export const removeClass = (className, element) => {
  */
 
 export const addAttribute = (element, attributes) => {
-  const elementToChange = find(element);
+  let elementToChange = find(element);
 
   if (elementToChange.length) {
     for(let i = 0; i < elementToChange.length; i++) {
@@ -126,7 +126,7 @@ export const addAttribute = (element, attributes) => {
  */
 
 export const removeAttribute = (attributeName, element) => {
-  const elementToChange = find(element);
+  let elementToChange = find(element);
 
   if (elementToChange.length) {
     for(let i = 0; i < elementToChange.length; i++) {
