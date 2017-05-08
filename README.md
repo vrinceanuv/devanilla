@@ -22,12 +22,12 @@ const devanilla = require('devanilla')
 # DOM Usage
 Find element or elements
 ```javascript
-const element = devanilla.find('header')
+let element = devanilla.find('header')
 ```
 
 Add class
 ```javascript
-const element = devanilla.find('header')
+let element = devanilla.find('header')
 devanilla.addClass('my-class second-class', element)
 
 //Alternative
@@ -36,7 +36,7 @@ devanilla.addClass('my-class second-class', 'header')
 
 Remove class
 ```javascript
-const element = devanilla.find('header')
+let element = devanilla.find('header')
 devanilla.removeClass('my-class second-class', element)
 
 //Alternative
