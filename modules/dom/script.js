@@ -1,4 +1,4 @@
-import { addClasses, removeClasses } from '../utils/script';
+import { parseHTML } from '../utils/script';
 
 /**
  * Finds an element or elements
@@ -38,27 +38,55 @@ export const removeElement = (element) => {
 };
 
 /**
- * Adds an element inside another element as last child
+ * Adds an element inside another element as last child (append)
  * @param  {node} element
  * @param  {node} parent
+ * @param  {bool} existingElement (default: false)
  */
 
-export const append = (element, parent) => {
+export const append = (element, parent, existingElement) => {
   let parentNode = find(parent);
-  let childNode = find(element);
+  let childNode = element;
+  const existingElement = existingElement || false;
+
+  if (existingElement) {
+    childNode = find(element);
+  }
+
+  if (typeof childNode === 'string') {
+    if (childNode.indexOf('<')) {
+      childNode = parseHTML(element);
+    } else {
+      childNode = addElement(element);
+    }
+  }
 
   return parentNode.appendChild(childNode);
 };
 
 /**
- * Adds an element inside another element as first child
+ * Adds an element inside another element as first child (prepend)
  * @param  {node} element
  * @param  {node} parent
+ * @param  {bool} existingElement (default: false)
  */
 
-export const prepend = (element, parent) => {
+export const prepend = (element, parent, existingElement) => {
   let parentNode = find(parent);
-  let childNode = find(element);
+  let childNode = element;
+  const existingElement = existingElement || false;
+
+  if (existingElement) {
+    childNode = find(element);
+  }
+
+  if (typeof childNode === 'string') {
+    if (childNode.indexOf('<')) {
+      childNode = parseHTML(element);
+    } else {
+      childNode = addElement(element);
+    }
+  }
 
   parentNode.insertBefore(childNode, parentNode.firstChild);
 };
@@ -136,3 +164,36 @@ export const removeAttribute = (attributeName, element) => {
     attributes.map(attr => removeAttribute(attributeName));
   }
 };
+
+/**
+ * Adds a class to an element
+ * @param  {string} classes
+ * @param  {node} element
+ */
+export const addClasses = (classes, elementToChange) => {
+  classes.map( className => {
+    if (elementToChange.classList) {
+      return elementToChange.classList.add(className);
+    } else {
+      elementToChange.className += ` ${className}`;
+
+      return elementToChange;
+    }
+  });
+}
+
+/**
+ * Removes a class from an element
+ * @param  {string} classes
+ * @param  {node} element
+ */
+export const removeClasses = (classes, elementToChange) => {
+  classes.map( className => {
+    if (elementToChange.classList) {
+      return elementToChange.classList.remove(className);
+    } else {
+      // eslint-disable-next-line
+      return elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+  });
+}
