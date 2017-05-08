@@ -1,22 +1,16 @@
-export const addClasses = (classes, elementToChange) => {
-  classes.map( className => {
-    if (elementToChange.classList) {
-      return elementToChange.classList.add(className);
-    } else {
-      elementToChange.className += ` ${className}`;
+/**
+ * Parse a string as html
+ * @param  {string} string
+ */
 
-      return elementToChange;
-    }
-  });
-}
+export const parseHTML = (string) => {
+  let temp = document.implementation.createHTMLDocument();
 
-export const removeClasses = (classes, elementToChange) => {
-  classes.map( className => {
-    if (elementToChange.classList) {
-      return elementToChange.classList.remove(className);
-    } else {
-      // eslint-disable-next-line
-      return elementToChange.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
-  });
+  if (typeof string !== 'string') {
+    return string;
+  }
+
+  temp.body.innerHTML = string;
+
+  return temp.body.children;
 }
