@@ -1,3 +1,4 @@
+![Async Logo](https://raw.githubusercontent.com/vrinceanuv/devanilla/master/logo/devanilla.jpg)
 # devanilla
 
 We have created this library, because we know out there are lots of vanilla js in development apps, and we know that sometimes some helpers are welcomed.
