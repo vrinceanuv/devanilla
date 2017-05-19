@@ -4,6 +4,8 @@ We have created this library, because we know out there are lots of vanilla js i
 
 devanilla purpose is to ease your way when you search for DOM elements or want to apply events to one or multiple elements, do Ajax calls, etc.
 
+<a href="https://snyk.io/test/github/vrinceanuv/devanilla"><img src="https://snyk.io/test/github/vrinceanuv/devanilla/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/vrinceanuv/devanilla" style="max-width:100%;"></a>
+
 # Installing (not yet published)
 ```javascript
 $ npm install devanilla
