@@ -1,19 +1,13 @@
 import { parseHTML } from '../utils/script';
 
 /**
- * Finds an element or elements
+ * Finds an element or elements and transforms the NodeList to an Array
  * @param  {string} element
  */
 
 export const find = (elementSelector) => {
   if (typeof elementSelector === 'string') {
-    const elements = document.querySelectorAll(elementSelector);
-
-    if (elements.length > 1) {
-      return elements;
-    }
-
-    return elements[0];
+    return [...document.querySelectorAll(elementSelector)];
   } else {
     return elementSelector;
   }
@@ -34,7 +28,7 @@ export const addElement = element => document.createElement(element);
 export const removeElement = (element) => {
   let childNode = find(element);
 
-  element.parentNode.removeChild(childNode);
+  childNode.map(child => child.parentNode.removeChild(child));
 };
 
 /**
@@ -44,10 +38,10 @@ export const removeElement = (element) => {
  * @param  {bool} existingElement (default: false)
  */
 
-export const append = (element, parent, existingElement) => {
+export const append = (element, parent, currentElement) => {
   let parentNode = find(parent);
   let childNode = element;
-  const existingElement = existingElement || false;
+  const existingElement = currentElement || false;
 
   if (existingElement) {
     childNode = find(element);
@@ -61,7 +55,9 @@ export const append = (element, parent, existingElement) => {
     }
   }
 
-  return parentNode.appendChild(childNode);
+  for (var parent of parentNode) {
+    parent.appendChild(childNode);
+  }
 };
 
 /**
@@ -71,10 +67,10 @@ export const append = (element, parent, existingElement) => {
  * @param  {bool} existingElement (default: false)
  */
 
-export const prepend = (element, parent, existingElement) => {
+export const prepend = (element, parent, currentElement) => {
   let parentNode = find(parent);
   let childNode = element;
-  const existingElement = existingElement || false;
+  const existingElement = currentElement || false;
 
   if (existingElement) {
     childNode = find(element);
@@ -102,9 +98,7 @@ export const addClass = (className, element) => {
   const classes = className.split(' ');
 
   if (elementToChange.length) {
-    for(let i = 0; i < elementToChange.length; i++) {
-      addClasses(classes, elementToChange[i]);
-    }
+    elementToChange.map(element => addClasses(classes, element))
   } else {
     addClasses(classes, elementToChange);
   }
@@ -120,10 +114,8 @@ export const removeClass = (className, element) => {
   let elementToChange = find(element);
   const classes = className.split(' ');
 
-  if (elementToChange.length) {
-    for(let i = 0; i < elementToChange.length; i++) {
-      removeClasses(classes, elementToChange[i]);
-    }
+  if (elementToChange.length > 1) {
+    elementToChange.map(element => removeClasses(classes, element))
   } else {
     removeClasses(classes, elementToChange);
   }
