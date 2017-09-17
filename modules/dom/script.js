@@ -1,4 +1,4 @@
-import { parseHTML } from '../utils/script';
+import {parseHTML} from '../utils/script';
 
 /**
  * Finds an element or elements and transforms the NodeList to an Array
@@ -18,7 +18,7 @@ export const find = (elementSelector) => {
  * @param  {string} element
  */
 
-export const addElement = element => document.createElement(element);
+export const createElement = element => document.createElement(element);
 
 /**
  * Removes an element from DOM
